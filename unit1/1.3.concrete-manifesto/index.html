@@ -20,13 +20,13 @@
 </html> 
   <div class="skull">
   <div class="eyes">
-    <div class="eye-left">Here’s to the <strong style="color:red;"> crazy</strong> ones.</div>
-    <div class="eye-right">The <strong style="color:red;">misfits</strong>. The <strong style="color:red;">rebels</strong>.</div>
+    <div class="eye-left">Here’s to the <strong class="glow-on-hover"> crazy</strong> ones.</div>
+    <div class="eye-right">The <strong class="glow-on-hover">misfits</strong>. The <strong class="glow-on-hover">rebels</strong>.</div>
   </div>
-  <div class="nose">The <strong style="color:red;">troublemakers</strong>.</div>
+  <div class="nose">The <strong class="glow-on-hover">troublemakers</strong>.</div>
   <div class="mouth">
-    <div class="mouth-top">The <strong style="color:red;">round pegs</strong> in the <strong style="color:red;">square holes</strong>.</div>
-    <div class="mouth-bottom">The ones who see things <strong style="color:red;">differently</strong>.</div>
+    <div class="mouth-top">The <strong class="glow-on-hover">round pegs</strong> in the <strong class="glow-on-hover">square holes</strong>.</div>
+    <div class="mouth-bottom">The ones who see things <strong class="glow-on-hover">differently</strong>.</div>
   
 <style>
 body{
@@ -82,5 +82,15 @@ body{
   width: 200px;
   padding: 5px;
   margin: 2px 0;
+}
+.glow-on-hover {
+    color: red;
+    transition: color 0.5s ease, text-shadow 0.5s ease;
+    cursor: pointer;
+}
+
+.glow-on-hover:hover {
+    color: blue;
+    transition: color 0.5s ease, text-shadow 0.5s ease;
 }
 </style>
