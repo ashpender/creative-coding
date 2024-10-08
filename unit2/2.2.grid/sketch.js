@@ -22,8 +22,8 @@ for (let x = 0; x < 11; x++){
       fill(random(300), random(300), random(300));
       // Random the stroke color
       stroke(random(300), random(300), random(300));
-      // Random the stroke thickness, making it out of 8 so there is more variety and the grid is 8 by 8
-      strokeWeight(random(0, 8));
+      // Random the stroke thickness, making it out of 11 so there is more variety and the grid is 11 by 11
+      strokeWeight(random(0, 11));
       //based on instructions
       ellipse(0,0,100,100);
       //based on instructions
