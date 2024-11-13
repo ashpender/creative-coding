@@ -1,4 +1,5 @@
-//Wanted the ripples to look like a neon videogame vibe 
+//Wanted the ripples to look like a neon videogame vibe
+// I highly reccomend placing the cursor in the middle of the screen and click whatever pattern you choose. Just make sure the the ripples are somewhat close. Stare for about 15 to 30 seconds and look around a room or look at a text of words. Have Fun! 
 let RippleX = 0; // Giving ripples their placement and values
 let RippleY = 0;
 let RippleD = 50;
