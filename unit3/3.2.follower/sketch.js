@@ -51,7 +51,7 @@ function draw() {
     yspeed = -speedfactor;
   }
 
-  // If the image and cursor touch, respawn image randomly and increase score
+  // If the image and cursor touch, respawn image randomly and score goes down
   if (d < 25) {
     score = score - 1;
     x = random(width);

@@ -1,49 +1,52 @@
-let RippleX = 0;//Giving ripples their placement and values
+//Wanted the ripples to look like a neon videogame vibe 
+let RippleX = 0; // Giving ripples their placement and values
 let RippleY = 0;
-let RippleD = 50; 
+let RippleD = 50;
 
-//Making a list for the ripples
-let Ripplers = []; 
+// Making a list for the ripples
+let Ripplers = [];
 
-//Making class for the ripples
- class Rippler { 
-  constructor(x,y) {
-    this.x = x,
-    this.y = y,
-    this.d = 0
+// Class for the ripples
+class Rippler {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+    this.d = 0;
   }
-  //Making new ripple
-   draw(){
+
+  // Draws a new ripple
+  draw() {
     this.d += 1;
     circle(this.x, this.y, this.d);
   }
 }
+
 function setup() {
   createCanvas(600, 600);
 }
 
-//Giving the charateristics of the ripples
+// Characteristics of the ripples
 function draw() {
-  background(Black);
-  stroke(random('Red', 'Orange', 'Blue'));
+  background('black'); // Making Black background
+  stroke(random(['red', 'orange', 'blue'])); // Corrected stroke usage
   strokeWeight(3);
   noFill();
 
-  rippled += 1;
+  RippleD += 1;
   circle(RippleX, RippleY, RippleD);
 
-  //Clicking to make new ripples
-  for (let i = 0; i < ripplers.length; i++){
-    ripplers[i].draw();
+  // Drawing each ripple
+  for (let i = 0; i < Ripplers.length; i++) {
+    Ripplers[i].draw();
   }
 }
 
-//Every click makes new ripple appear whever the mouse is
+// Every click makes a new ripple appear wherever the mouse is
 function mousePressed() {
-  stroke(random('Red', 'Orange', 'Blue'));
-  ripplex = mouseX;
-  rippley = mouseY;
-  rippled = 0;
+  RippleX = mouseX;
+  RippleY = mouseY;
+  RippleD = 0;
 
-  //Adding new ripple to the list
-  ripplers.push(new Rippler (mouseX,mouseY));
+  // Adding a new ripple to the list
+  Ripplers.push(new Rippler(mouseX, mouseY));
+}
