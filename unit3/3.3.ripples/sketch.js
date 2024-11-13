@@ -28,7 +28,7 @@ function setup() {
 // Characteristics of the ripples
 function draw() {
   background('black'); // Making Black background
-  stroke(random(['red', 'orange', 'blue'])); // Corrected stroke usage
+  stroke(random(['red', 'orange', 'blue']));// Making the ripples change colors
   strokeWeight(3);
   noFill();
 
@@ -41,7 +41,7 @@ function draw() {
   }
 }
 
-// Every click makes a new ripple appear wherever the mouse is
+// Every click makes a new ripple appear wherever the mouse is clicked
 function mousePressed() {
   RippleX = mouseX;
   RippleY = mouseY;
