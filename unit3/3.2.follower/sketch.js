@@ -5,11 +5,12 @@ let yspeed = speedfactor;
 let x = 0;
 let y = 0;
 let d = 0;
-let FollowerImage; // Corrected declaration
-let score = 0; // Added score initialization
+let FollowerImage; 
+//setting score
+let score = 10;
 
 function preload() {
-  FollowerImage = loadImage("Stalkercat.jpg");
+  FollowerImage = loadImage("Weirdcat.png");
 }
 
 function setup() {
@@ -24,9 +25,9 @@ function draw() {
   background("PaleVioletRed");
 
   // Score display in top left corner
-  textSize(45);
+  textSize(31);
   fill(0);
-  text("score: " + score, 10, 30);
+  text("score: " + score, 5, 25);
 
   // Distance formula
   d = sqrt((x - mouseX) ** 2 + (y - mouseY) ** 2);
@@ -52,7 +53,7 @@ function draw() {
 
   // If the image and cursor touch, respawn image randomly and increase score
   if (d < 25) {
-    score += 1;
+    score = score - 1;
     x = random(width);
     y = random(height);
   }
