@@ -27,7 +27,7 @@ function draw() {
   // Score display in top left corner
   textSize(31);
   fill(0);
-  text("score: " + score, 5, 25);
+  text(score, 5, 25);
 
   // Distance formula
   d = sqrt((x - mouseX) ** 2 + (y - mouseY) ** 2);
