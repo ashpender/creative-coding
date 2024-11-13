@@ -37,7 +37,7 @@ function draw() {
   y += yspeed;
 
   // Display the image
-  image(FollowerImage, x, y, 20, 20);
+  image(FollowerImage, x, y, 65, 65);
 
   // The image follows the cursor
   if (mouseX > x) {
