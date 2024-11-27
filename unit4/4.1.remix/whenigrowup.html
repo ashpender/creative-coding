@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<!--
+My adaptation of "Lede" https://nickm.com/poems/lede.html is siupposed to be about kids doing random stuff and determining what they want to be when they grow up. Some sentences are supposed to not make the most logical sense of thinking, which I think best represents the way kids think and declare things. I picked the colors to best represent childhood. And I made a class to show what career the kid is choosing. 
+Lede
+
+Copyright (c) 2012 Nick Montfort <nickm@nickm.com>
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved. This file is offered as-is,
+without any warranty.
+-->
+<style type="text/css">
+/* <![CDATA[ */
+body {
+  background: Crimson;
+  color: #000;
+  margin: 0 0 0 24pt;
+  font-family: Optima, sans-serif;
+  font-size: 13pt;
+}
+a {
+ color: #117;
+ text-decoration: none;
+}
+.dreamer {
+  color: #48d1cc; 
+  font-weight: bold; 
+}
+/* ]]> */
+</style>
+<script type="text/javascript">
+var t = 0;
+var childhood_activity = [
+    "drawing on the walls",
+    "pretending to be a superhero",
+    "building forts out of blankets",
+    "catching fireflies",
+    "eating ice cream too fast",
+    "playing dress-up",
+    "riding a bike",
+    "playing hide-and-seek",
+    "staring at the clouds",
+    "asking too many questions",
+    "digging in the sandbox",
+    "collecting rocks"
+];
+
+var curious_trait = [
+    "a wide-eyed",
+    "a daydreaming",
+    "a mischievous",
+    "a shy",
+    "a talkative",
+    "a curious",
+    "a giggling",
+    "an imaginative",
+    "an adventurous",
+    "a thoughtful",
+    "a cautious"
+];
+
+var dreamer_identity = [
+    "astronaut",
+    "artist",
+    "detective",
+    "scientist",
+    "explorer",
+    "zookeeper",
+    "chef",
+    "teacher",
+    "inventor",
+    "writer",
+    "firefighter",
+    "musician"
+];
+
+var action_verb = [
+    "inspire",
+    "discover",
+    "create",
+    "teach",
+    "explore",
+    "imagine",
+    "build",
+    "learn",
+    "help",
+    "lead",
+    "make people smile",
+    "share stories"
+];
+
+var future_vision = [
+    "travel the stars",
+    "paint a masterpiece",
+    "solve mysteries",
+    "find cures for diseases",
+    "map new worlds",
+    "care for animals",
+    "cook delicious feasts",
+    "educate children",
+    "invent amazing gadgets",
+    "write epic tales",
+    "save lives",
+    "perform beautiful music"
+];
+
+function rand_range(max) {
+    "use strict";
+    return Math.floor(Math.random() * max);
+}
+function fresh(array) {
+    "use strict";
+    var index = rand_range(array.length - 2) + 1, selection = array[index];
+    array[index] = array[0];
+    array[0] = selection;
+    return selection;
+}
+function story() {
+    "use strict";
+    var last, lede, main = document.getElementById('main');
+    if (t <= 12) {
+        t += 1;
+    } else {
+        main.removeChild(document.getElementById('main').firstChild);
+    }
+   last = document.createElement('div');
+last.appendChild(document.createElement('br'));
+last = document.createElement('div');
+last.appendChild(document.createElement('br'));
+lede = "One day, while " + fresh(childhood_activity) + ", " + fresh(curious_trait) +
+  " kid thought: 'Maybe I could grow up to be <span class=\"dreamer\">" + fresh(dreamer_identity) +
+  "</span>, " + fresh(action_verb) + " and " + fresh(future_vision) + ".'";
+last.innerHTML = lede;
+main.appendChild(last);
+}
+function produce_stories() {
+    "use strict";
+    story();
+    setInterval(story, 3500);
+}</script>
+  <title>When I Grow Up...</title>
+</head>
+<body onload="produce_stories();">
+<div style="float:right; background:#999; margin-left:6px; border-left:thin #000 solid; border-bottom:thin #000 solid; padding:6px">
+<div><br>Lede<br />Based on a <a href="http://www.newser.com/story/157857/scotlands-new-hero-is-man-in-giraffe-suit.html">True Story</a><br /><a href="http://nickm.com">Nick Montfort</a></div>
+</div>
+<div id="main"></div>
+</body>
+</html>

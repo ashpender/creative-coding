@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+  <title>Zoo Emergency Alert, by Ash Pendert</title>
+
+    	<!-- In my adaptation of Safety https://nickm.com/poems/safety.html, I wanted to do an emergency alert on how to handle different zoo animals in different situations and conditions.
+
+    Safety, Copyright 2019 Nick Montfort <nickm@nickm.com>
+
+    Copying and distribution of this file, with or without modification, are
+    permitted in any medium without royalty provided the copyright notice and
+    this notice are preserved. This file is offered as-is, without any warranty.
+
+    I wrote this text generator in Python on April 7, 2008, never distributed or
+    exhibited it, and just found it recently among older files. On September 15,
+    2019, I wrote this HTML/JavaScript implementation of the generator. In terms
+    of the way text is generated, this version functions exactly as does the
+    2008 Python program. The typography is different, as the Python program runs
+    in a terminal window.
+    -->
+
+    	<script>
+      const title = [
+  ['Emergency Handling of the '],
+  ['Escaped ', 'Aggressive ', 'Injured ', 'Panicked ', 'Unwell '],
+  ['Lion', 'Elephant', 'Giraffe', 'Monkey', 'Crocodile', 'Tiger', 
+   'Kangaroo', 'Flamingo', 'Penguin', 'Snake']
+];
+const text = [
+  [' USE TRANQUILIZER ', ' OPEN GATE ', ' SECURE AREA ', ' HIDE QUICKLY ', 
+   ' ALERT TEAM ', ' LURE WITH FOOD ', ' COVER CAGE ', ' SEAL ENCLOSURE ', 
+   ' CLOSE DOOR ', ' CALL FOR HELP '],
+  ['WITH NET', 'WITH FOOD', 'WITH WATER', 'WITH CARE', 'WITH CAUTION', 
+   'WITH TRANQUILITY', 'WITH URGENCY', 'IMMEDIATELY', 'CALMLY', 'SLOWLY'],
+  ['', '', '', '', '', '', ' IMMEDIATELY', ' CAREFULLY', ' QUICKLY', ' FIRMLY']
+];
+
+function choice(array) {
+  return array[Math.floor(Math.random() * array.length)];
+}
+
+function instruct() {
+  let headline = "";
+  let instructions = "";
+  const head_div = document.getElementById("headline");
+  const inst_div = document.getElementById("instructions");
+  for (let i = 0; i < title.length; i++) {
+    headline += choice(title[i]);
+  }
+  head_div.innerHTML = headline;
+  const n = 2 + Math.floor(Math.random() * 8);
+  for (let i = 0; i < n; i++) {
+    instructions += "<li>";
+    for (let j = 0; j < text.length; j++) {
+      instructions += choice(text[j]);
+    }
+    instructions += "</li>";
+  }
+  inst_div.innerHTML = instructions;
+}
+
+function go() {
+  instruct();
+  setInterval(instruct, 5000);
+}
+      </script>
+
+</head>
+<body onload="go()" style="font-size:3.2vh; margin:7vh; font-family:sans-serif">
+  <h1 style="color:darkorange; text-align:center">ZOO EMERGENCY ALERT</h1>
+  <h2 style="color:blue; text-align:center">Follow these steps carefully to ensure safety for all</h2>
+  <h1 id="headline" style="display:flex; justify-content:center"></h1>
+  <div style="display:flex; justify-content:center">
+    <ol id="instructions"></ol> <!-- Changed from </ul> to </ol> -->
+  </div>
+</body>
+</html>
