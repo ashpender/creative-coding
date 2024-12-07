@@ -1,4 +1,4 @@
-//THis is almost the same as the ripple assignment, but insead the ripples grow and shrink
+//THis is almost the same as the ripple assignment, but insead the ripples grow and shrink, used https://editor.p5js.org/amcc/sketches/3ZLqytY_4 to help a little bit
 let RippleX = 0; // Giving ripples their placement and values
 let RippleY = 0;
 let RippleD = 50;
