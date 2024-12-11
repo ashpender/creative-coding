@@ -2,63 +2,57 @@ let dotX = 0;
 let dotY = 0;
 let dotSize = 50; // Size of the clickable image
 let score = 0; // Player's score
-let DotImage;
-let gameOver = false;
+let DotImage; // Placeholder for the image
+let gameOver = false; // Flag for game state
 
 function preload() {
   DotImage = loadImage("CuteCat.png"); // Load the image
 }
 
 function setup() {
-  createCanvas(600, 600); // Create the canvas
-  centerCanvas(); // Position the canvas in the center
-  randomizeDotPosition(); // Start with a random position for the dot
-  setInterval(randomizeDotPosition, 500); // Change dot position every 0.5 seconds
-}
-
-function centerCanvas() {
-  let x = (windowWidth - width) / 2;
-  let y = (windowHeight - height) / 2;
-  
-
-function windowResized() {
-  centerCanvas(); // Re-center the canvas when the window size changes
+  createCanvas(600, 600); // Game area
+  randomizeDotPosition(); // Initialize the dot's position
+  setInterval(randomizeDotPosition, 500); // Change position every 0.5 seconds
 }
 
 function draw() {
-  background("PaleVioletRed"); // Set the background color
+  background("PaleVioletRed"); // Background color
 
   if (gameOver) {
     textSize(50);
     fill(0);
     textAlign(CENTER, CENTER);
-    text("You Win!", width / 2, height / 2); // Show win message
-    noLoop(); // Stop the game
+    text("You Win!", width / 2, height / 2); // Display winning message
+    noLoop(); // Stop the game loop
     return;
   }
 
+  // Display the score in the top-left corner
   textSize(31);
   fill(0);
-  text("Score: " + score, 10, 30); // Display score in the top left
+  text("Score: " + score, 5, 30);
 
-  image(DotImage, dotX, dotY, dotSize, dotSize); // Show the dot image
+  // Display the clickable image
+  image(DotImage, dotX, dotY, dotSize, dotSize);
 }
 
 function mousePressed() {
+  // Check if the mouse click is within the dot's bounds
   let d = dist(mouseX, mouseY, dotX + dotSize / 2, dotY + dotSize / 2);
   if (d < dotSize / 2) {
-    score += 1; // Add to the score
+    score++; // Increment the score
     if (score >= 10) {
-      gameOver = true; // End the game when score is 10
+      gameOver = true; // End the game
     } else {
-      randomizeDotPosition(); // Move the dot if game isn’t over
+      randomizeDotPosition(); // Move the dot to a new random location
     }
   }
 }
 
 function randomizeDotPosition() {
   if (!gameOver) {
+    // Ensure the dot stays fully visible within the canvas
     dotX = random(dotSize / 2, width - dotSize / 2);
-    dotY = random(dotSize / 2, height - dotSize / 2); // Ensure the dot stays on canvas
+    dotY = random(dotSize / 2, height - dotSize / 2);
   }
 }
