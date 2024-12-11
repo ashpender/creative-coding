@@ -19,8 +19,7 @@ function setup() {
 function centerCanvas() {
   let x = (windowWidth - width) / 2;
   let y = (windowHeight - height) / 2;
-  canvas.position(x, y); // Reposition the canvas when called
-}
+  
 
 function windowResized() {
   centerCanvas(); // Re-center the canvas when the window size changes
