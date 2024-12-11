@@ -1,4 +1,3 @@
-let debug = false; // Debug toggle
 let dotX = 0;
 let dotY = 0;
 let dotSize = 50; // Size of the clickable image
@@ -6,7 +5,7 @@ let score = 0; // Player's score
 let DotImage; // Placeholder for the image
 
 function preload() {
-  DotImage = loadImage("Stalkercat.jpg"); // Load the image
+  DotImage = loadImage("Weirdcat.png"); // Load the image
 }
 
 function setup() {
@@ -23,9 +22,13 @@ function draw() {
   text("Score: " + score, 5, 30);
 
   // Display the clickable image
-  image(DotImage, dotX, dotY, dotSize, dotSize);
-
+  if (DotImage) {
+    image(DotImage, dotX, dotY, dotSize, dotSize);
+  } else {
+    fill("white");
+    ellipse(dotX + dotSize / 2, dotY + dotSize / 2, dotSize); // Placeholder if image is missing
   }
+}
 
 function mousePressed() {
   // Check if the mouse click is within the dot's bounds
