@@ -6,7 +6,7 @@ let score = 0; // Player's score
 let DotImage; // Placeholder for the image
 
 function preload() {
-  DotImage = loadImage("Stalkercat.jpg"); // Load the image
+  DotImage = loadImage("CuteCat.png"); // Load the image
 }
 
 function setup() {
